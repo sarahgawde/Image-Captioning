@@ -1,29 +1,10 @@
-########################################################################
-#
-# Functions for downloading and extracting data-files from the internet.
-#
-# Implemented in Python 3.5
-#
-########################################################################
-#
-# This file is part of the TensorFlow Tutorials available at:
-#
-# https://github.com/Hvass-Labs/TensorFlow-Tutorials
-#
-# Published under the MIT License. See the file LICENSE for details.
-#
-# Copyright 2016 by Magnus Erik Hvass Pedersen
-#
-########################################################################
+
 
 import sys
 import os
 import urllib.request
 import tarfile
 import zipfile
-
-########################################################################
-
 
 def _print_download_progress(count, block_size, total_size):
     """
@@ -45,7 +26,6 @@ def _print_download_progress(count, block_size, total_size):
     sys.stdout.flush()
 
 
-########################################################################
 
 def download(base_url, filename, download_dir):
     """
@@ -121,6 +101,3 @@ def maybe_download_and_extract(url, download_dir):
         print("Done.")
     else:
         print("Data has apparently already been downloaded and unpacked.")
-
-
-########################################################################

@@ -1,30 +1,7 @@
-########################################################################
-#
-# Cache-wrapper for a function or class.
-#
-# Save the result of calling a function or creating an object-instance
-# to harddisk. This is used to persist the data so it can be reloaded
-# very quickly and easily.
-#
-# Implemented in Python 3.5
-#
-########################################################################
-#
-# This file is part of the TensorFlow Tutorials available at:
-#
-# https://github.com/Hvass-Labs/TensorFlow-Tutorials
-#
-# Published under the MIT License. See the file LICENSE for details.
-#
-# Copyright 2016 by Magnus Erik Hvass Pedersen
-#
-########################################################################
 
 import os
 import pickle
 import numpy as np
-
-########################################################################
 
 
 def cache(cache_path, fn, *args, **kwargs):
@@ -68,9 +45,6 @@ def cache(cache_path, fn, *args, **kwargs):
     return obj
 
 
-########################################################################
-
-
 def convert_numpy2pickle(in_path, out_path):
     """
     Convert a numpy-file to pickle-file.
@@ -92,8 +66,6 @@ def convert_numpy2pickle(in_path, out_path):
     with open(out_path, mode='wb') as file:
         pickle.dump(data, file)
 
-
-########################################################################
 
 if __name__ == '__main__':
     # This is a short example of using a cache-file.
@@ -143,5 +115,3 @@ if __name__ == '__main__':
                 fn=ExpensiveClass, c=123, d=456)
 
     obj.print_result()
-
-########################################################################

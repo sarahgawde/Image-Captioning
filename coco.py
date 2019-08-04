@@ -1,49 +1,8 @@
-########################################################################
-#
-# Functions for downloading the COCO data-set from the internet
-# and loading it into memory. This data-set contains images and
-# various associated data such as text-captions describing the images.
-#
-# http://cocodataset.org
-#
-# Implemented in Python 3.6
-#
-# Usage:
-# 1) Call set_data_dir() to set the desired storage directory.
-# 2) Call maybe_download_and_extract() to download the data-set
-#    if it is not already located in the given data_dir.
-# 3) Call load_records(train=True) and load_records(train=False)
-#    to load the data-records for the training- and validation sets.
-# 5) Use the returned data in your own program.
-#
-# Format:
-# The COCO data-set contains a large number of images and various
-# data for each image stored in a JSON-file.
-# Functionality is provided for getting a list of image-filenames
-# (but not actually loading the images) along with their associated
-# data such as text-captions describing the contents of the images.
-#
-########################################################################
-#
-# This file is part of the TensorFlow Tutorials available at:
-#
-# https://github.com/Hvass-Labs/TensorFlow-Tutorials
-#
-# Published under the MIT License. See the file LICENSE for details.
-#
-# Copyright 2018 by Magnus Erik Hvass Pedersen
-#
-########################################################################
-
 import json
 import os
 import download
 from cache import cache
 
-########################################################################
-
-# Directory where you want to download and save the data-set.
-# Set this before you start calling any of the functions below.
 # Use the function set_data_dir() to also update train_dir and val_dir.
 data_dir = "data/coco/"
 
@@ -55,8 +14,6 @@ val_dir = "data/coco/val2017"
 data_url = "http://images.cocodataset.org/"
 
 
-########################################################################
-# Private helper-functions.
 
 def _load_records(train=True):
     """
@@ -129,9 +86,7 @@ def _load_records(train=True):
     return ids, filenames, captions
 
 
-########################################################################
-# Public functions that you may call to download the data-set from
-# the internet and load the data into memory.
+
 
 
 def set_data_dir(new_data_dir):
@@ -200,5 +155,3 @@ def load_records(train=True):
                     train=train)
 
     return records
-
-########################################################################
